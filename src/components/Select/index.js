@@ -21,9 +21,15 @@ const Select = ({
     setCollapsed(newValue);
   };
   return (
-    <div className={`SelectContainer ${type}`} data-testid="select-testid">
+    <div className={`SelectContainer ${type}`} data-testid="select-testid"
+      role="button"
+      tabIndex={0}
+      onClick={() =>
+        setCollapsed(!collapsed)
+      }
+    >
       {label && <div className="label">{label}</div>}
-      <div className="Select">
+      <div className="Select" >
         <ul>
           <li className={collapsed ? "SelectTitle--show" : "SelectTitle--hide"}>
             {value || (!titleEmpty && "Toutes")}
@@ -54,10 +60,6 @@ const Select = ({
           type="button"
           data-testid="collapse-button-testid"
           className={collapsed ? "open" : "close"}
-          onClick={(e) => {
-            e.preventDefault();
-            setCollapsed(!collapsed);
-          }}
         >
           <Arrow />
         </button>
