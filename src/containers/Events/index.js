@@ -32,6 +32,7 @@ const EventList = () => {
   };
   const pageNumber = Math.floor((filteredEvents?.length || 0) / PER_PAGE) + 1;
   const typeList = new Set(data?.events.map((event) => event.type));
+
   return (
     <>
       {error && <div>An error occured</div>}
@@ -46,16 +47,17 @@ const EventList = () => {
           />
           <div id="events" className="ListContainer">
             {filteredEvents.map((event) => (
-              <Modal key={event.id} Content={<ModalEvent event={event} />}>
+              <Modal key={event.id} Content={< ModalEvent event={event} />}>
                 {({ setIsOpened }) => (
-                  <EventCard
+                  (event.type && <EventCard
                     onClick={() => setIsOpened(true)}
                     imageSrc={event.cover}
                     title={event.title}
                     date={new Date(event.date)}
                     label={event.type}
-                  />
+                  />)
                 )}
+
               </Modal>
             ))}
           </div>
@@ -68,7 +70,8 @@ const EventList = () => {
             ))}
           </div>
         </>
-      )}
+      )
+      }
     </>
   );
 };
