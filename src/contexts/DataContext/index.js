@@ -34,7 +34,7 @@ export const DataProvider = ({ children }) => {
       return;
     }
     getData();
-  });
+  }, [data, getData]);
 
   return (
     <DataContext.Provider
