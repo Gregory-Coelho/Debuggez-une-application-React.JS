@@ -14,7 +14,6 @@ describe("When a select is created", () => {
     const collapseButtonElement = screen.getByTestId("collapse-button-testid");
     expect(collapseButtonElement).toBeInTheDocument();
   });
-
   describe("with a label", () => {
     it("a label is displayed", () => {
       render(<Select label="label" selection={["value1", "value2"]} />);

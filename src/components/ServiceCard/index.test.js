@@ -10,6 +10,7 @@ describe("When a service card is created", () => {
     expect(imageElement).toBeInTheDocument();
     expect(imageElement.alt).toEqual("image-alt-text");
   });
+
   it("a content is displayed", () => {
     render(
       <ServiceCard imageSrc="http://src-image" imageAlt="image-alt-text">

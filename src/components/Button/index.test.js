@@ -12,6 +12,12 @@ describe("When a button is created", () => {
     const buttonElement = screen.getByText(/label/);
     expect(buttonElement).toBeInTheDocument();
   });
+  // Ajout du test pour bouton
+  it("disables the button when the 'disabled' prop is true", () => {
+    render(<Button disabled>label</Button>);
+    const buttonElement = screen.getByTestId("button-test-id");
+    expect(buttonElement.disabled).toEqual(true);
+  });
   describe("and it's clicked", () => {
     it("an event onClick it executed", () => {
       const onClick = jest.fn();
